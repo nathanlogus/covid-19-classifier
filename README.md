@@ -1,19 +1,14 @@
-# Model for Project Presentation and Folder Structure (in Portuguese)
-
 # Estrutura de Arquivos e Pastas
 
-A estrutura aqui apresentada é uma simplificação daquela proposta pelo [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/). Também será aceito que o projeto adote a estrutura completa do Cookiecutter Data Science e isso será considerado um diferencial. A estrutura geral é a seguinte e será detalhada a seguir:
+A estrutura aqui apresentada é uma simplificação daquela proposta pelo [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/).
 
 ~~~
-├── README.md          <- apresentação do projeto
+├── README.md          <- Apresentação do projeto
 │
 ├── data
-│   ├── external       <- dados de terceiros
-│   ├── interim        <- dados intermediários, e.g., resultado de transformação
-│   ├── processed      <- dados finais usados para a modelagem
-│   └── raw            <- dados originais sem modificações
+│   └── external       <- Dados de terceiros
 │
-├── notebooks          <- Jupyter notebooks ou equivalentes
+├── notebooks          <- Notebooks exportados do Google Colab
 │
 ├── src                <- fonte em linguagem de programação ou sistema (e.g., Orange)
 │   └── README.md      <- instruções básicas de instalação/execução
@@ -43,35 +38,17 @@ Se for código em linguagem de programação, tente organizá-lo de forma que se
 
 Qualquer mídia usada no seu projeto: vídeo, ilustrações, arquivos PDF etc.
 
-# Modelo para Apresentação do Projeto
+# Modelos de Deep Learning aplicados a imagens médicas como ferramenta no diagnóstico de COVID-19 
+# Deep Learning models applied to medical images as a tool in the diagnosis of COVID-19
 
-Este é um guia de como produzir documentação em Markdown. Para entender como criar documentos em Markdown no Github, veja o material/vídeo:
-[Guia de Uso do Markdown](https://github.com/mc-unicamp/oficinas/tree/master/docs).
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1qduTX2yPoMB6Ejhei3-PkB4BkdnqwAbd?usp=sharing]
 
-Vide detalhes sobre o Markdown em: [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
+# Introdução
+O ano de 2020 será lembrado por inúmeras gerações futuras devido a epidemia que, inesperadamente, se espalhou mundialmente e se tornou uma pandemia. A doença, causada por um coronavírus nomeado COVID-19, desencadeia uma sindrome respiratória aguda grave (SARS), em específico o Sars-CoV-2. Uma parcela da população que contrai o vírus possui quadro assintomático, porém os que desenvolvem sintomas, acabam sofrendo de infecção pulmonar e necessitam de auxilio de respiradores artificiais para sobreviver. Com a evolução da tecnologia, ferramentas computacionais se tornam utensílios de grande valor para o diagnóstico precoce das doenças.
 
-E mais especificamente sobre tabelas em: [Organizing information with tables](https://help.github.com/en/articles/organizing-information-with-tables)
+Segundo [(JIANPNEG et al., 2020)](https://www.researchgate.net/publication/340271344_COVID-19_Screening_on_Chest_X-ray_Images_Using_Deep_Learning_based_Anomaly_Detection), deep learning é uma ferramenta efetiva para auxiliar radiologistas na detecção de anomalias em imagens, por isso, nossa proposta é utilizar imagens de raio-x dos pulmões e de tomografia computadorizada para identificar os casos de COVID-19. Para tal, iremos explorar o uso de modelos de deep learning, com o objetivo de identificar qual o modelo que apresenta melhor performance para a tarefa de classificar imagens de exames realizados e prover uma assistência ao diagnóstico médico rápido.
 
-O projeto pode ser apresentado em uma das possíveis formas:
-1. texto completo no arquivo `README.md`;
-2. texto no arquivo `README.md` e seção de Resultados e Discussão dentro de um notebook Jupyter ou equivalente -- nesse caso, deve haver um link para se abrir o notebook na respectiva seção;
-3. texto completo dentro de um notebook Jupyter ou equivalente -- nesse caso, o arquivo README.md deve conter pelo menos: o título, os componentes da equipe e um link para o notebook.
-
-Só será aceito o uso de notebook Jupyter (ou equivalente) para apresentação do projeto ou parte dele (formas 2 e 3), se for possível executá-lo online a partir de um link sem instalação local de software.
-
-Para todos os casos, a estrutura Markdown proposta abaixo poderá ser usada, dado que os notebooks aceitam Markdown.
-
-Segue abaixo o modelo de como deve ser apresentado e documentado o projeto. Tudo o que for indicado entre `<...>` indica algo que deve ser substituído pelo indicado. No modelo são colocados exemplos ilustrativos, que serão substituídos pelos do seu projeto.
-
-# Modelo para Apresentação do Projeto
-
-# Projeto `<Título em Português>`
-# Project `<Title in English>`
-
-# Descrição Resumida do Projeto
-~~~
-<Descreva resumidamente o que fará o projeto. O resumo idealmente deve: apresentar o contexto; indicar o problema; apresentar a sua solução para o problema; indicar porque a sua solução é melhor do que os esforços atuais (não obrigatório); concluir com os resultados alcançados.>
-~~~
+A estrutura deste trabalho é divida como apresentado a seguir. A seção metodologia introduz a fundamentação teórica utilizada em nosso trabalho, assim como descreve a comparação dos métodos de deep learning utilizados na pesquisa. Na seção materiais apresentamos os materiais e ferramentas utilizados para a construção do sistema de coleta de dados necessários para realizar as análises desejadas. Na seção análises apresentamos as características dos resultados coletados assim como efetuamos as análises realizadas sob os mesmos. Finalmente, na seção conclusões, concluí-se o trabalho apresentando as perspectivas gerais dos resultados e explora as melhorias e expansões dos experimentos em trabalhos futuros.
 
 # Abstract in English
 ~~~
@@ -79,15 +56,22 @@ Segue abaixo o modelo de como deve ser apresentado e documentado o projeto. Tudo
 ~~~
 
 # Equipe
-* `<nome completo>` - `<RA>`
+* Eduardo Ferreira - R.A.
+* Henrique Orpheu - R.A.
+* Leandro Carvalho - R.A.
+* Nathan Ribeiro - R.A. 263732
 
-# Vídeo do Projeto
-`<coloque um link para o vídeo apresentado o projeto.>`
+# Vídeo de apresentação do projeto
+https://www.youtube.com/watch?v=ps3WlKUGLFw&feature=youtu.be
 
-# Introdução e Motivação
-~~~
-<Descrição do tema do projeto, incluindo motivação, contexto gerador e caracterização do problema. A introdução também pode apresentar iniciativas correlatas para lidar com o problema (não obrigatório) e deve introduzir de forma mais detalhada que o resumo a solução proposta e resultados alcançados. Aqui também são apresentadas as seções do projeto.>
-~~~
+# Motivação
+
+Por se tratar de um vírus que originou uma pandemia, diferentes regiões do mundo foram afetadas. Uma forma com boa aceitação e confiabilidade para detecção do vírus em pacientes é o teste RT-PCR (do inglês *reverse-transcriptase polymerase chain reaction*). Entretando, nem todas as nações tem acesso a essa forma de diagnóstico e quando existente, pode ser escasso.
+
+Uma outra forma de realizar o diagnóstico do COVID-19 é através das Tomografias Computadorizadas (CT). Apesar de ser uma boa alternativa à RT-PCR, regiões sub-desenvolvidas podem não ter o equipamento necessário, além de ser um procedimento mais longo do que um exame de Raio-X.
+As imagens de Raio-X são uma alternativa de fácil acesso em diferentes regiões do mundo, e são exames rápidos, porém apresentam uma menor eficácia na detecção da doença.
+
+Dessa forma, a principal motivação desse trabalho é utilizar a aprendizagem de máquina para acelerar e aumentar a acurácia da detecção do COVID-19 através de imagens de Raio-X, e assim viabilizar a sua utilização como diagnóstico.
 
 ## Perguntas de Pesquisa
 ~~~
@@ -102,19 +86,19 @@ Segue abaixo o modelo de como deve ser apresentado e documentado o projeto. Tudo
 # Recursos e Métodos
 
 ## Bases de Dados
-`<Elencar bases de dados utilizadas no projeto preferencialmente no formato da tabela a seguir.>`
 Base de Dados | Endereço na Web | Resumo descritivo e uso
 ----- | ----- | -----
-Base 1 | http://base1.org/ | `<Descrição da Base 1 e para que ela foi usada no projeto.>`
-Base 2 | http://base2.org/ | `<Descrição da Base 2 e para que ela foi usada no projeto.>`
+COVID-CT-Dataset: a CT scan dataset about COVID-19 - Zhao, Jinyu and Zhang, Yichen and He, Xuehai and Xie, Pengtao (2020) | https://github.com/UCSD-AI4H/COVID-CT | Dataset com 349 imagens de tomografia computadorizada que contém achados clínicos referentes ao diagnóstico positivo para COVID-19.
+COVID-19 - China Consortium of Chest CT Image Investigation(CC-CCII) | http://ncov-ai.big.ac.cn/download?lang=en | Dataset com aproximadamente 4000 imagens de exames positivos e negativos para o diagnóstico de COVID-19, dada a quantidade de imagens e tamanho da base nos aproveitamos de uma parcela bem pequena das imagens disponibilizadas.
+COVID-19 image data collection - Cohen, Joseph Paul and Morrison, Paul and Dao, Lan | https://github.com/ieee8023/covid-chestxray-dataset | Dataset com 803 imagens de Raio-X e Tomografia Computadorizada distribuidas em diagnósticos positivos e negativos para COVID-19, nos utilizamos das imagens de Raio-X disponíveis nesta base
+"Chest X-Ray Images (Pneumonia)" - Mooney, Paul | https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia | Dataset com 5863 imagens de Raio-X de pulmão com diagnósticos normais e para Pneumonia (viral e bacterial), nos utilizamos deste dataset para aumentar a quantidade de arquivos negativos para COVID-19
 
 ## Ferramentas
 
-`<Elencar ferramentas utilizadas no projeto preferencialmente no formato da tabela a seguir.>`
 Ferramenta | Endereço na Web | Resumo descritivo e uso
 ----- | ----- | -----
-Ferramenta 1 | http://ferramenta1.org/ | `<Descrição da Ferramenta 1 e para que ela foi usada no projeto.>`
-Ferramenta 2 | http://ferramenta2.org/ | `<Descrição da Ferramenta 2 e para que ela foi usada no projeto.>`
+Google Colab | https://research.google.com/colaboratory/faq.html | Nos utilizamos das ferramentas disponibilizadas pelo Google Colab para a construção do Notebook com as análises detalhadas que fizemos
+Orange Data Mining | https://orange.biolab.si/ | Fizemos uma implementação de modelos de classificação na ferramenta Orange Data Mining para avaliar os resultados de modelos simplificados para a solução do problema de classificação das imagens de COVID-19
 
 # Metodologia
 ~~~
