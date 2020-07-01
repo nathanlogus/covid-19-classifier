@@ -1,13 +1,19 @@
 # Modelos de Deep Learning aplicados a imagens médicas como ferramenta no diagnóstico de COVID-19 
 # Deep Learning models applied to medical images as a tool in the diagnosis of COVID-19
+Relatório referente ao projeto final da disciplina de Ciência e Visualização de dados em Saúde, ministrada no primeiro semestre de 2020.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1qduTX2yPoMB6Ejhei3-PkB4BkdnqwAbd?usp=sharing)
 
+# Descrição do projeto
+Diferentes regiões do mundo foram afetadas pelo novo coronavírus. Um grande número de pessoas está ficando doente e estão sendo levadas ao hospital, às vezes em condições críticas de saúde, devido a um dos principais sintomas da doença: pneumonia e insuficiência respiratória. Esta é a principal causa raiz que já levou mais de 500 mil pessoas à morte. Até o momento, a maneira mais confiável de detectar a infecção, o teste "RT-PCR", ainda é escasso e caro, ainda mais quando se trata de regiões subdesenvolvidas ou lugares isolados no mundo. Para ajudar os médicos a detectar com mais facilidade a doença, pessoas de todo o mundo estão se unindo para melhorar o diagnóstico obtido por meio de imagens. Eles estão trabalhando em algoritmos de aprendizado de máquina com o objetivo de tornar o diagnóstico mais rápido e preciso através de métodos mais baratos.
+
+Portanto, este trabalho tem como objetivo propor uma análise de modelos de aprendizado profundo baseados em imagens de raios X e tomografia computadorizada para detectar a doença e também verificar a viabilidade de melhorar modelos já propostos por outras pessoas no campo de pesquisa.
+
+
 # Abstract
-Different regions of the world have been affected by the new coronavirus. A huge number of people are getting sick and taken to the hospital because one of the symptoms makes the affected person unable to breath. A well accepted and reliable way to detect the virus in patients is the RT-PCR (reverse-transcriptase polymerase chain reaction) test. However, not all nations have access to this form of diagnosis and when it exists, it can be scarce and expensive. Another way to perform the diagnosis of COVID-19 is through Computerized Tomography (CT). Although it is a good alternative to RT-PCR, underdeveloped regions may not have the necessary equipment, and it is a longer procedure than an X-ray examination. X-ray images are an easy-to-access alternative in different regions of the world, and are fast exams, but are less effective in detecting the disease. Therefore, the main motivation of this work is to use machine learning, deep learning to be more specific, to accelerate and increase the accuracy of the detection of COVID-19 through X-ray images, and thus enable its use as a diagnosis.
+Different regions of the world have been affected by the new coronavirus. A huge number of people are getting sick and beeing taken to the hospital, sometimes in critical health conditions, due to one of the main symptons of the disease: Pneumonia and breath insufficiency. This is the major root cause that has already led more than 500 thousand people to death. So far, the most reliable way to detect the infection, the "RT-PCR" test, is still scarce and expensive, even more when it comes to sub-developed regions or isolated places in the globe. In order to help the doctors detecting more easily the disease, people around the world are coming together for the improvement of the imagaging diagnosis. They're working on machine learning algorithms with the objective of turning the diagnosis faster and more accurate through less expensive methods.
 
-Different regions of the world have been affected by the new coronavirus. A huge number of people are getting sick and taken to the hospital because one of the symptoms makes the affected person unable to breath. Reliable way to detect the virus are expensive and getting scarce, or don’t even exist in isolated places. To help doctors detect more easily the sickness, people around the world are coming together to develop machine learning algorithms in order to make the diagnosis of the disease faster and more accurate through image analysis, so even in isolated places, they can be diagnosed with a simple computer. Therefore, this work aims to propose an analysis of some deep learning models with  X-ray and computerized tomography images to detect the disease and see if it is possible to further improve models proposed by others. 
-
+Therefore, this work aims to propose an analysis of deep learning models based on X-ray and Computerized Tomography images to detect the disease and also check the feasibility of improving models already proposed by other people in the research field.
 
 # Equipe
 * Eduardo Ferreira - R.A. 139407
@@ -25,7 +31,7 @@ Segundo [(JIANPNEG et al., 2020)](https://www.researchgate.net/publication/34027
 
 # Motivação
 
-Por se tratar de um vírus que originou uma pandemia, diferentes regiões do mundo foram afetadas. Uma forma com boa aceitação e confiabilidade para detecção do vírus em pacientes é o teste RT-PCR (do inglês *reverse-transcriptase polymerase chain reaction*). Entretando, nem todas as nações tem acesso a essa forma de diagnóstico e quando existente, pode ser escasso.
+Por se tratar de um vírus que originou uma pandemia, diferentes regiões do mundo foram afetadas. Uma forma com boa aceitação e confiabilidade para detecção do vírus em pacientes é o teste RT-PCR (do inglês *reverse-transcriptase polymerase chain reaction*). Entretanto, nem todas as nações tem acesso a essa forma de diagnóstico e quando existente, pode ser escasso.
 
 Uma outra forma de realizar o diagnóstico do COVID-19 é através das Tomografias Computadorizadas (CT). Apesar de ser uma boa alternativa à RT-PCR, regiões sub-desenvolvidas podem não ter o equipamento necessário, além de ser um procedimento mais longo do que um exame de Raio-X.
 As imagens de Raio-X são uma alternativa de fácil acesso em diferentes regiões do mundo, e são exames rápidos, porém apresentam uma menor eficácia na detecção da doença.
@@ -72,18 +78,7 @@ O Orange Canvas é uma ferramenta de visualização e manipulação de dados de 
 
 Nós usamos essa ferramenta para comparar com o nosso modelo criado no Google Colab, como o Orange já tem modelos de machine learnig em sua biblioteca acabamos por usar esses modelos já criados.
 Nós usamos a base de dados de imagens de raio x com a divisão de 70% das imagens para treinamento e 30% das imagens para o teste, e obtivemos um resultado satisfatório.
- 
-~~~python
-df = pd.read_excel("/content/drive/My Drive/Colab Notebooks/dataset.xlsx");
-sns.set(color_codes=True);
-sns.distplot(df.Hemoglobin);
-plt.show();
-~~~
 
-## Evolução do Projeto
-~~~
-<Relate a evolução do projeto: possíveis problemas enfrentados e possíveis mudanças de trajetória. Relatar o processo para se alcançar os resultados é tão importante quanto os resultados.>
-~~~
 
 # Resultados e Discussão
 ~~~
