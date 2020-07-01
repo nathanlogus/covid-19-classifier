@@ -66,9 +66,42 @@ Google Colab | https://research.google.com/colaboratory/faq.html | Nos utilizamo
 Orange Data Mining | https://orange.biolab.si/ | Fizemos uma implementação de modelos de classificação na ferramenta Orange Data Mining para avaliar os resultados de modelos simplificados para a solução do problema de classificação das imagens de COVID-19
 
 # Metodologia
-~~~
-<Abordagem/metodologia adotada, incluindo especificação de quais técnicas foram exploradas, tais como: aprendizagem de máquina, análise de redes, análise estatística, ou integração de uma ou mais técnicas.>
-~~~
+
+
+### Modelos de Baseline
+Para a construção e avaliação dos modelos de deep learning, uma rede neural inicial será construida.
+
+Em seguida adotamos a utilização de uma rede que encontramos durante o processo de revisão bibliográfica, esta rede é uma modificação da rede XceptionNet que foi aplicada a mesma tarefa proposta por este trabalho, a ideia era aplicar a mesma rede ao nosso conjunto de dados e avaliar se conseguiriamos obter resultados similares.
+
+#### Convolutional Neural Networks
+Uma Rede Neural Convolucional (ConvNet / Convolutional Neural Network / CNN) é um algoritmo de Deep Learning que dada uma imagem de entrada, atribui pesos e vieses a objetos da imagem, sendo no final capaz de diferenciar um do outro.
+
+A pré-configuração exigida em uma ConvNet é muito menor em comparação com outros algoritmos de classificação e portanto decidimos que este tipo de rede seria adequada para realizar uma análise incial.
+
+#### Modified XceptionNet
+Fazendo uma revisão sobre os últimos artigos disponíveis na acadêmia que tinham como objetivo a classificação de imagens de diagnóstico com base em redes neurais, identificamos uma implementação de rede chamada XceptionNet.
+
+Esta rede foi desenvolvida com o objetivo de identificar faces modificadas por meio de algoritmos de Deep Fake, entretanto têm mostrado bons resultados para outros domínios de aplicação.
+
+Um exemplo foi a modificação desta rede proposta no artigo "Diagnosis of Coronavirus Disease (COVID-19) from Chest X-Ray images using modified XceptionNet." escrito por Singh, Krishna Kant et al.
+
+Os resultados atingidos por eles no conjunto de imagens que coletaram apresentou resultados excelentes e com o objetivo de avaliar se a performance obtida por eles seria semelhante no nosso conjunto de dados, resolvemos avaliar os resultados.
+
+### Transfer Learning
+Criar modelos de Deep Learning do zero pode se tornar uma tarefa complicada e que necessita de muitos recursos computacionais e dados para treinamento.
+
+Desta forma o Transfer Learning surge como uma ferramenta para usufruir de conhecimento e de informações aprendidas por modelos conhecidos e treinados em milhões de dados de treinamento por pesquisadores e empresas.
+
+Nos aproveitamos desta técnica com alguns dos modelos mais conhecidos e adicionamos camadas em seu fim para "especializar o modelo ao novo conjunto de dados".
+
+#### VGG16
+
+
+#### Residual Neural Networks
+
+
+#### Efficient Net
+
 
 ## Detalhamento do Projeto
 
@@ -79,13 +112,210 @@ O Orange Canvas é uma ferramenta de visualização e manipulação de dados de 
 Nós usamos essa ferramenta para comparar com o nosso modelo criado no Google Colab, como o Orange já tem modelos de machine learnig em sua biblioteca acabamos por usar esses modelos já criados.
 Nós usamos a base de dados de imagens de raio x com a divisão de 70% das imagens para treinamento e 30% das imagens para o teste, e obtivemos um resultado satisfatório.
 
+A imagem abaixo mostra a configuração que fizemos para a configuração do pipeline de análise no Orange.
+![Pipeline Orange](assets/orange.jpeg)
+
+Os resultados obtidos são apresentados abaixo.
+
 
 # Resultados e Discussão
-~~~
-<Apresente os resultados da forma mais rica possível, com gráficos e tabelas. Mesmo que o seu código rode online em um notebook, copie para esta parte a figura estática. A referência a código e links para execução online pode ser feita aqui ou na seção de detalhamento do projeto (o que for mais pertinente).
+### Modelos de Baseline
+Os resultados obtidos para os modelos de Baseline serão apresentados nesta seção.
 
-A discussão dos resultados também pode ser feita aqui na medida em que os resultados são apresentados ou em seção independente. Aspectos importantes a serem discutidos: É possível tirar conclusões dos resultados? Quais? Há indicações de direções para estudo? São necessários trabalhos mais profundos?>
-~~~
+#### Convolutional Neural Networks
+
+![Loss x Epoch - CNN](assets/1.png)
+
+![Accuracy x Epoch - CNN](assets/2.png)
+
+![Confusion Matrix - CNN](assets/3.png)
+
+|              | precision | recall   | f1-score | support |
+|--------------|-----------|----------|----------|---------|
+| precision    | recall    | f1-score | support  | 80      |
+| 0            | 0.92      | 0.97     | 0.95     | 200     |
+| 1            | 0.93      | 0.81     | 0.87     | 85      |
+| accuracy     |           |          | 0.93     | 285     |
+| macro avg    | 0.93      | 0.89     | 0.91     | 285     |
+| weighted avg | 0.93      | 0.93     | 0.92     | 285     |
+
+
+Avaliando os resultados iniciais podemos identificar que mesmo uma rede convolucional simples pode obter uma acurácia alta para o conjunto de imagens de Raio-X de Pulmão, iremos verificar que o mesmo não se repete para as imagens de Tomografia computadorizada.
+
+O uso de redes convolucionais apresenta resultados precisos, com maior recall e f1-score médios, sendo um tipo de rede recomendada para a tarefa de classificar as imagens de Raio-X.
+
+Foi utilizada uma camada de Dropout na saída do modelo para evitar ao máximo o viés e overfitting dos dados no modelo, efetivamente ignorando 20% dos pesos de conexões entre a camada final e a convolucional da rede.
+
+![Loss x Epoch - CNN](assets/4.png)
+
+![Accuracy x Epoch - CNN](assets/5.png)
+
+![Confusion Matrix - CNN](assets/6.png)
+
+|              | precision | recall   | f1-score | support |
+|--------------|-----------|----------|----------|---------|
+| 0            | 0.91      | 0.61     | 0.73     | 80      |
+| 1            | 0.68      | 0.93     | 0.78     | 70      |
+| accuracy     |           |          | 0.76     | 150     |
+| macro avg    | 0.79      | 0.77     | 0.76     | 150     |
+| weighted avg | 0.80      | 0.76     | 0.76     | 150     |
+
+Diferentemente do conjunto de dados de Raio X, o modelo de rede convolucional aplicado as imagens de tomografia computadorizada apresentou um resultado geral inferior ao anterior, apesar de apresentar uma acurácia média de ~75%, as métricas de precisão, recall e f1-score acompanham os resultados da acurácia.
+
+#### Modified XceptionNet
+
+![Loss x Epoch - XceptionNet](assets/7.png)
+
+![Accuracy x Epoch - XceptionNet](assets/8.png)
+
+![Confusion Matrix - XceptionNet](assets/9.png)
+
+|              | precision | recall   | f1-score | support |
+|--------------|-----------|----------|----------|---------|
+| precision    | recall    | f1-score | support  | 80      |
+| 0            | 0.98      | 0.97     | 0.98     | 200     |
+| 1            | 0.93      | 0.96     | 0.95     | 85      |
+| accuracy     |           |          | 0.97     | 285     |
+| macro avg    | 0.96      | 0.97     | 0.96     | 285     |
+| weighted avg | 0.97      | 0.97     | 0.97     | 285     |
+
+Comparado ao modelo de baseline com redes neurais convolucionais, o modelo modificado da XceptionNet apresentou melhorias frente as métricas de precision, f1-score, recall, atingimos resultados similares aos obtidos pelo artigo descrito anteriormente para o conjunto de dados que selecionamos, desta forma podemos confirmar que o mesmo é adequado para este tipo de classificação em imagens de Raio X.
+
+![Loss x Epoch - XceptionNet](assets/10.png)
+
+![Accuracy x Epoch - XceptionNet](assets/11.png)
+
+![Confusion Matrix - XceptionNet](assets/12.png)
+
+|              | precision | recall   | f1-score | support |
+|--------------|-----------|----------|----------|---------|
+| precision    | recall    | f1-score | support  | 80      |
+| 0            | 0.94      | 0.38     | 0.54     | 80      |
+| 1            | 0.58      | 0.97     | 0.72     | 70      |
+| accuracy     |           |          | 0.65     | 150     |
+| macro avg    | 0.76      | 0.67     | 0.63     | 150     |
+| weighted avg | 0.77      | 0.65     | 0.62     | 150     |
+
+Observando os resultados para as imagens de Tomografia Computadorizada os resultados apresentam uma acurácia baixa se utilizando da mesma arquiteura de modelo, muito possivelmente o conjunto de dados que temos acesso não possui representatividade para obter resultados adequados neste modelo.
+
+### Transfer Learning
+
+
+#### VGG16
+
+![Loss x Epoch - VGG16](assets/13.png)
+
+![Accuracy x Epoch - VGG16](assets/14.png)
+
+![Confusion Matrix - VGG16](assets/15.png)
+
+|              | precision | recall   | f1-score | support |
+|--------------|-----------|----------|----------|---------|
+| precision    | recall    | f1-score | support  | 80      |
+| 0            | 0.96      | 0.98     | 0.97     | 200     |
+| 1            | 0.96      | 0.89     | 0.93     | 85      |
+| accuracy     |           |          | 0.96     | 285     |
+| macro avg    | 0.96      | 0.94     | 0.95     | 285     |
+| weighted avg | 0.96      | 0.96     | 0.96     | 285     |
+
+Comparado ao modelo de baseline com redes neurais convolucionais e com os resultados da XceptionNet, o modelo baseado na VGG16 apresentou métricas de precision, f1-score, recall equiparados aos obtidos pela XceptionNet, sendo assim, uma alternativa viável também para a classificação de imagens de Raio X.
+
+![Loss x Epoch - VGG16](assets/16.png)
+
+![Accuracy x Epoch - VGG16](assets/17.png)
+
+![Confusion Matrix - VGG16](assets/18.png)
+
+|              | precision | recall   | f1-score | support |
+|--------------|-----------|----------|----------|---------|
+| precision    | recall    | f1-score | support  | 80      |
+| 0            | 0.83      | 0.89     | 0.86     | 80      |
+| 1            | 0.86      | 0.79     | 0.82     | 70      |
+| accuracy     |           |          | 0.84     | 150     |
+| macro avg    | 0.84      | 0.84     | 0.84     | 150     |
+| weighted avg | 0.84      | 0.84     | 0.84     | 150     |
+
+Analisando os resultados da aplicação da VGG16 é possível ver que em comparação com as anteriores ela apresenta uma acurácia um pouco maior para a classificação de imagens de tomografia computadorizada, entretano analisando as curvas de treinamento é possível observar um pouco de overfitting da rede para o conjunto de dados.
+
+Outro ponto interessante é que também é possível observar que o conjunto de imagens de teste/validação do modelo pode não ter representatividade para o propósito da classificação, com um conjunto de dados maior talvez pudessmos atingir melhores resultados com a utilização desta rede.
+
+#### Residual Neural Networks
+
+![Loss x Epoch - ResNet](assets/19.png)
+
+![Accuracy x Epoch - ResNet](assets/20.png)
+
+![Confusion Matrix - ResNet](assets/21.png)
+
+|              | precision | recall   | f1-score | support |
+|--------------|-----------|----------|----------|---------|
+| precision    | recall    | f1-score | support  | 80      |
+| 0            | 0.00      | 0.00     | 0.00     | 200     |
+| 1            | 0.30      | 1.00     | 0.46     | 85      |
+| accuracy     |           |          | 0.30     | 285     |
+| macro avg    | 0.15      | 0.50     | 0.23     | 285     |
+| weighted avg | 0.09      | 0.30     | 0.14     | 285     |
+
+Observando os resultados da rede, observamos que os dados de validação não provém informações suficientes para habilitar o modelo a generalizar os resultados obtidos, isso pode ter ocorrido pelo desbalanceamento das amostras de COVID-19 e imagens normais.
+
+Mesmo com o processo de Data Augmentation, o desbalanceamento pode ter influênciado nos resultados e a utilização de técnicas de ajuste de peso para as classes poderia ajudar a resolver ou minizar o erro do modelo.
+
+![Loss x Epoch - ResNet](assets/22.png)
+
+![Accuracy x Epoch - ResNet](assets/23.png)
+
+![Confusion Matrix - ResNet](assets/24.png)
+
+|              | precision | recall   | f1-score | support |
+|--------------|-----------|----------|----------|---------|
+| precision    | recall    | f1-score | support  | 80      |
+| 0            | 0.00      | 0.00     | 0.00     | 80      |
+| 1            | 0.47      | 1.00     | 0.64     | 70      |
+| accuracy     |           |          | 0.47     | 150     |
+| macro avg    | 0.23      | 0.50     | 0.32     | 150     |
+| weighted avg | 0.22      | 0.47     | 0.30     | 150     |
+
+Assim como no conjunto de imagens de Raio-X o conjunto de dados de tomografia apresentou resultados ruins, neste caso, podemos observar uma pequena melhora na acurácia média do modelo que pode reforça a ideia de que balancear os datasets pode ajudar em resultados positivos.
+
+De qualquer forma, a implementação da rede ResNet no conjunto de imagens que selecionamos apresentou resultados ruins.
+
+#### Efficient Net
+
+![Loss x Epoch - EffNet](assets/25.png)
+
+![Accuracy x Epoch - EffNet](assets/26.png)
+
+![Confusion Matrix - EffNet](assets/27.png)
+
+|              | precision | recall   | f1-score | support |
+|--------------|-----------|----------|----------|---------|
+| precision    | recall    | f1-score | support  | 80      |
+| 0            | 1.00      | 0.73     | 0.85     | 200     |
+| 1            | 0.62      | 1.00     | 0.76     | 85      |
+| accuracy     |           |          | 0.81     | 285     |
+| macro avg    | 0.81      | 0.87     | 0.80     | 285     |
+| weighted avg | 0.89      | 0.81     | 0.82     | 285     |
+
+Comparado ao modelo citados anteriormente, a arquitetura Efficient Net apresentou resultados satisfatórios de acurácia e métricas de precision, f1-score, recall, atingimos relativamente bons.
+
+Entretanto as outras técnicas citadas anteriormente obtiveram resultados melhores para o nosso conjunto de dados e provavelmente têm melhores capacidades de generalização.
+
+![Loss x Epoch - EffNet](assets/28.png)
+
+![Accuracy x Epoch - EffNet](assets/29.png)
+
+![Confusion Matrix - EffNet](assets/30.png)
+
+|              | precision | recall   | f1-score | support |
+|--------------|-----------|----------|----------|---------|
+| precision    | recall    | f1-score | support  | 80      |
+| 0            | 0.65      | 0.96     | 0.77     | 80      |
+| 1            | 0.90      | 0.40     | 0.55     | 70      |
+| accuracy     |           |          | 0.70     | 150     |
+| macro avg    | 0.78      | 0.68     | 0.66     | 150     |
+| weighted avg | 0.77      | 0.70     | 0.67     | 150     |
+
+Assim como nos resultados das imagens de Raio-X, as imagens de tomografia aplicadas ao modelo EfficientNet tiveram resultados bons, entretanto apresentam os mesmos problemas do outro conjunto de dados.
 
 # Conclusões
 Com base nas análises, foi possível observar a grande dificuldade em trabalhar com imagens para classificação, além de ser uma tarefa que demanda computacionalmente por se tratar de um grande volume de dados, é ainda mais complexa pelas grande quantidade de modelos disponíveis para trabalhar na classificação de imagens.
@@ -118,3 +348,4 @@ Considerando os trabalhos futuros, poderiamos explorar o ajuste e parâmetros do
 
 JIANPENG, Z. et al. COVID-19 Screening on Chest X-ray Images Using Deep Learning basedAnomaly Detection, 2020
 
+TAN, M.; LE, Q. V.EfficientNet: Rethinking Model Scaling for Convolutional NeuralNetworks. [S.l.: s.n.], 2019. arXiv:1905.11946.
