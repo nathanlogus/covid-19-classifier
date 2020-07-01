@@ -1,43 +1,3 @@
-# Estrutura de Arquivos e Pastas
-
-A estrutura aqui apresentada é uma simplificação daquela proposta pelo [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/).
-
-~~~
-├── README.md          <- Apresentação do projeto
-│
-├── data
-│   └── external       <- Dados de terceiros
-│
-├── notebooks          <- Notebooks exportados do Google Colab
-│
-├── src                <- fonte em linguagem de programação ou sistema (e.g., Orange)
-│   └── README.md      <- instruções básicas de instalação/execução
-│
-└── assets             <- mídias usadas no projeto
-~~~
-
-Na raiz deve haver um arquivo de nome `README.md` contendo a apresentação do projeto, como detalhado na seção seguinte.
-
-## `data`
-
-Dados utilizados no projeto respeitadas as possíveis implicações éticas, se você tiver licença para tal e se o volume for suportado pelo Github. Você pode optar por colocar um subconjunto ilustrativo dos dados.
-
-É importante que sejam colocados os dados originais (se for possível) para garantir a reprodutibilidade do processo. Os originais são colocados na subpasta `raw` se forem produzidos pela equipe e na subpasta `external` se forem de terceiros. Também podem ser colocados aqui dados intermediários (por exemplo, dados tratados, resumidos etc.) na pasta `interim`. Finalmente, coloque os dados finais que serviram de entrada para as suas análises na subpasta `processed`.
-
-## `notebooks`
-
-Código do seu projeto que pode ser executado online sem instalação de software, tal como um notebook em Jupyter ou equivalente.
-
-## `src`
-
-Código em alguma linguagem ou projeto em Orange, Weka e similares.
-
-Se for código em linguagem de programação, tente organizá-lo de forma que seja simples a sua execução por terceiros, por exemplo, acrescente as bibliotecas necessárias etc. Acrescente na raiz um arquivo `README.md` com as instruções básicas de instalação e execução.
-
-## `assets`
-
-Qualquer mídia usada no seu projeto: vídeo, ilustrações, arquivos PDF etc.
-
 # Modelos de Deep Learning aplicados a imagens médicas como ferramenta no diagnóstico de COVID-19 
 # Deep Learning models applied to medical images as a tool in the diagnosis of COVID-19
 
@@ -48,12 +8,11 @@ O ano de 2020 será lembrado por inúmeras gerações futuras devido a epidemia 
 
 Segundo [(JIANPNEG et al., 2020)](https://www.researchgate.net/publication/340271344_COVID-19_Screening_on_Chest_X-ray_Images_Using_Deep_Learning_based_Anomaly_Detection), deep learning é uma ferramenta efetiva para auxiliar radiologistas na detecção de anomalias em imagens, por isso, nossa proposta é utilizar imagens de raio-x dos pulmões e de tomografia computadorizada para identificar os casos de COVID-19. Para tal, iremos explorar o uso de modelos de deep learning, com o objetivo de identificar qual o modelo que apresenta melhor performance para a tarefa de classificar imagens de exames realizados e prover uma assistência ao diagnóstico médico rápido.
 
-A estrutura deste trabalho é divida como apresentado a seguir. A seção metodologia introduz a fundamentação teórica utilizada em nosso trabalho, assim como descreve a comparação dos métodos de deep learning utilizados na pesquisa. Na seção materiais apresentamos os materiais e ferramentas utilizados para a construção do sistema de coleta de dados necessários para realizar as análises desejadas. Na seção análises apresentamos as características dos resultados coletados assim como efetuamos as análises realizadas sob os mesmos. Finalmente, na seção conclusões, concluí-se o trabalho apresentando as perspectivas gerais dos resultados e explora as melhorias e expansões dos experimentos em trabalhos futuros.
-
 # Abstract in English
-~~~
-<English version of the abstract.>
-~~~
+Different regions of the world have been affected by the new coronavirus. A huge number of people are getting sick and taken to the hospital because one of the symptoms makes the affected person unable to breath. A well accepted and reliable way to detect the virus in patients is the RT-PCR (reverse-transcriptase polymerase chain reaction) test. However, not all nations have access to this form of diagnosis and when it exists, it can be scarce and expensive. Another way to perform the diagnosis of COVID-19 is through Computerized Tomography (CT). Although it is a good alternative to RT-PCR, underdeveloped regions may not have the necessary equipment, and it is a longer procedure than an X-ray examination. X-ray images are an easy-to-access alternative in different regions of the world, and are fast exams, but are less effective in detecting the disease. Therefore, the main motivation of this work is to use machine learning, deep learning to be more specific, to accelerate and increase the accuracy of the detection of COVID-19 through X-ray images, and thus enable its use as a diagnosis.
+
+Different regions of the world have been affected by the new coronavirus. A huge number of people are getting sick and taken to the hospital because one of the symptoms makes the affected person unable to breath. Reliable way to detect the virus are expensive and getting scarce, or don’t even exist in isolated places. To help doctors detect more easily the sickness, people around the world are coming together to develop machine learning algorithms in order to make the diagnosis of the disease faster and more accurate through image analysis, so even in isolated places, they can be diagnosed with a simple computer. Therefore, this work aims to propose an analysis of some deep learning models with  X-ray and computerized tomography images to detect the disease and see if it is possible to further improve models proposed by others. 
+
 
 # Equipe
 * Eduardo Ferreira - R.A.
@@ -106,12 +65,14 @@ Orange Data Mining | https://orange.biolab.si/ | Fizemos uma implementação de 
 ~~~
 
 ## Detalhamento do Projeto
-~~~
-<Apresente aqui detalhes da análise. Nesta seção ou na seção de Resultados podem aparecer destaques de código como indicado a seguir. Note que foi usada uma técnica de highlight de código, que envolve colocar o nome da linguagem na abertura de um trecho com `~~~`, tal como `~~~python`.
 
-Os destaques de código devem ser trechos pequenos de poucas linhas, que estejam diretamente ligados a alguma explicação. Não utilize trechos extensos de código. Se algum código funcionar online (tal como um Jupyter Notebook), aqui pode haver links. No caso do Jupyter, preferencialmente para o Binder abrindo diretamente o notebook em questão.>
-~~~
+### Orange
 
+O Orange Canvas é uma ferramenta de visualização e manipulação de dados de código aberto, também é uma ferramenta muito usada em machine learning, sua interface gráfica é didática a ponto de qualquer pessoa como o mínimo de conhecimento seja capaz de criar e manipular um modelo de visualização ou até mesmo classificação dos dados.
+
+Nós usamos essa ferramenta para comparar com o nosso modelo criado no Google Colab, como o Orange já tem modelos de machine learnig em sua biblioteca acabamos por usar esses modelos já criados.
+Nós usamos a base de dados de imagens de raio x com a divisão de 70% das imagens para treinamento e 30% das imagens para o teste, e obtivemos um resultado satisfatório.
+ 
 ~~~python
 df = pd.read_excel("/content/drive/My Drive/Colab Notebooks/dataset.xlsx");
 sns.set(color_codes=True);
@@ -140,3 +101,17 @@ A discussão dos resultados também pode ser feita aqui na medida em que os resu
 ~~~
 <Indique trabalhos futuros a partir do ponto alcançado.>
 ~~~
+
+# Referências
+
+[HE, X. et al. Sample-Efficient Deep Learning for COVID-19 Diagnosis Based on CT Scans.medrxiv, 2020.](https://github.com/UCSD-AI4H/COVID-CT)
+
+[Kang Zhang, Xiaohong Liu, Jun Shen, et al. Jianxing He, Tianxin Lin, Weimin Li, Guangyu Wang. (2020). Clinically Applicable AI System for Accurate Diagnosis, Quantitative Measurements and Prognosis of COVID-19 Pneumonia Using Computed Tomography.](http://ncov-ai.big.ac.cn/download?lang=en)
+
+[Paul Cohen, Morrison, Dao, et al. COVID-19 Image Data Collection: Prospective Predictions Are the Future, arXiv:2006.11988, 2020 ](https://github.com/ieee8023/covid-chestxray-dataset)
+
+[Kermany, Daniel S., et al. "Identifying medical diagnoses and treatable diseases by image-based deep learning." Cell 172.5 (2018): 1122-1131.](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia)
+
+
+JIANPENG, Z. et al. COVID-19 Screening on Chest X-ray Images Using Deep Learning basedAnomaly Detection, 2020
+
