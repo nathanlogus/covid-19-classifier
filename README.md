@@ -15,9 +15,9 @@ Different regions of the world have been affected by the new coronavirus. A huge
 
 
 # Equipe
-* Eduardo Ferreira - R.A.
-* Henrique Orpheu - R.A.
-* Leandro Carvalho - R.A.
+* Eduardo Ferreira - R.A. 139407
+* Henrique Orpheu - R.A. 139505
+* Leandro Carvalho - R.A. 228595
 * Nathan Ribeiro - R.A. 263732
 
 # Vídeo de apresentação do projeto
