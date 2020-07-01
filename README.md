@@ -41,7 +41,7 @@ Qualquer mídia usada no seu projeto: vídeo, ilustrações, arquivos PDF etc.
 # Modelos de Deep Learning aplicados a imagens médicas como ferramenta no diagnóstico de COVID-19 
 # Deep Learning models applied to medical images as a tool in the diagnosis of COVID-19
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1qduTX2yPoMB6Ejhei3-PkB4BkdnqwAbd?usp=sharing]
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1qduTX2yPoMB6Ejhei3-PkB4BkdnqwAbd?usp=sharing)
 
 # Introdução
 O ano de 2020 será lembrado por inúmeras gerações futuras devido a epidemia que, inesperadamente, se espalhou mundialmente e se tornou uma pandemia. A doença, causada por um coronavírus nomeado COVID-19, desencadeia uma sindrome respiratória aguda grave (SARS), em específico o Sars-CoV-2. Uma parcela da população que contrai o vírus possui quadro assintomático, porém os que desenvolvem sintomas, acabam sofrendo de infecção pulmonar e necessitam de auxilio de respiradores artificiais para sobreviver. Com a evolução da tecnologia, ferramentas computacionais se tornam utensílios de grande valor para o diagnóstico precoce das doenças.
@@ -74,14 +74,14 @@ As imagens de Raio-X são uma alternativa de fácil acesso em diferentes regiõe
 Dessa forma, a principal motivação desse trabalho é utilizar a aprendizagem de máquina para acelerar e aumentar a acurácia da detecção do COVID-19 através de imagens de Raio-X, e assim viabilizar a sua utilização como diagnóstico.
 
 ## Perguntas de Pesquisa
-~~~
-<Perguntas de pesquisa que o projeto pretende responder ou hipóteses a serem avaliadas, enunciadas de maneira objetiva e verificável.>
-~~~
+* É possível por meio de aprendizagem de máquina e visão computacional, criação de um modelo capaz de classificar imagens de raio-x de exames de COVID-19?
+* Dado o que já existe de modelos de aprendizagem de máquina, é possível melhorar a acurácia dos modelos já existentes com o uso de tecnologias/técnicas diferentes (redes neurais, etc)?
 
 ## Objetivos do projeto
-~~~
-<Como seu projeto propôs abordar o problema apresentado.>
-~~~
+
+Nossa proposta é utilizar imagens de raio-x dos pulmões e de tomografia computadorizada para classificar a partir destas imagens, casos de COVID-19.
+
+Para tal, iremos explorar o uso de modelos de redes neurais, aplicadas para a tarefa de classificação de imagens de exames, para de alguma forma, possívelmente auxiliar no diagnóstico médico rápido para casos de COVID-19.
 
 # Recursos e Métodos
 
