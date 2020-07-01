@@ -3,25 +3,25 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1qduTX2yPoMB6Ejhei3-PkB4BkdnqwAbd?usp=sharing)
 
-# Introdução
-O ano de 2020 será lembrado por inúmeras gerações futuras devido a epidemia que, inesperadamente, se espalhou mundialmente e se tornou uma pandemia. A doença, causada por um coronavírus nomeado COVID-19, desencadeia uma sindrome respiratória aguda grave (SARS), em específico o Sars-CoV-2. Uma parcela da população que contrai o vírus possui quadro assintomático, porém os que desenvolvem sintomas, acabam sofrendo de infecção pulmonar e necessitam de auxilio de respiradores artificiais para sobreviver. Com a evolução da tecnologia, ferramentas computacionais se tornam utensílios de grande valor para o diagnóstico precoce das doenças.
-
-Segundo [(JIANPNEG et al., 2020)](https://www.researchgate.net/publication/340271344_COVID-19_Screening_on_Chest_X-ray_Images_Using_Deep_Learning_based_Anomaly_Detection), deep learning é uma ferramenta efetiva para auxiliar radiologistas na detecção de anomalias em imagens, por isso, nossa proposta é utilizar imagens de raio-x dos pulmões e de tomografia computadorizada para identificar os casos de COVID-19. Para tal, iremos explorar o uso de modelos de deep learning, com o objetivo de identificar qual o modelo que apresenta melhor performance para a tarefa de classificar imagens de exames realizados e prover uma assistência ao diagnóstico médico rápido.
-
-# Abstract in English
+# Abstract
 Different regions of the world have been affected by the new coronavirus. A huge number of people are getting sick and taken to the hospital because one of the symptoms makes the affected person unable to breath. A well accepted and reliable way to detect the virus in patients is the RT-PCR (reverse-transcriptase polymerase chain reaction) test. However, not all nations have access to this form of diagnosis and when it exists, it can be scarce and expensive. Another way to perform the diagnosis of COVID-19 is through Computerized Tomography (CT). Although it is a good alternative to RT-PCR, underdeveloped regions may not have the necessary equipment, and it is a longer procedure than an X-ray examination. X-ray images are an easy-to-access alternative in different regions of the world, and are fast exams, but are less effective in detecting the disease. Therefore, the main motivation of this work is to use machine learning, deep learning to be more specific, to accelerate and increase the accuracy of the detection of COVID-19 through X-ray images, and thus enable its use as a diagnosis.
 
 Different regions of the world have been affected by the new coronavirus. A huge number of people are getting sick and taken to the hospital because one of the symptoms makes the affected person unable to breath. Reliable way to detect the virus are expensive and getting scarce, or don’t even exist in isolated places. To help doctors detect more easily the sickness, people around the world are coming together to develop machine learning algorithms in order to make the diagnosis of the disease faster and more accurate through image analysis, so even in isolated places, they can be diagnosed with a simple computer. Therefore, this work aims to propose an analysis of some deep learning models with  X-ray and computerized tomography images to detect the disease and see if it is possible to further improve models proposed by others. 
 
 
 # Equipe
-* Eduardo Ferreira - R.A.
-* Henrique Orpheu - R.A.
-* Leandro Carvalho - R.A.
+* Eduardo Ferreira - R.A. 139407
+* Henrique Orpheu - R.A. 139505
+* Leandro Carvalho - R.A. 228595
 * Nathan Ribeiro - R.A. 263732
 
 # Vídeo de apresentação do projeto
 https://www.youtube.com/watch?v=ps3WlKUGLFw&feature=youtu.be
+
+# Introdução
+O ano de 2020 será lembrado por inúmeras gerações futuras devido a epidemia que, inesperadamente, se espalhou mundialmente e se tornou uma pandemia. A doença, causada por um coronavírus nomeado COVID-19, desencadeia uma sindrome respiratória aguda grave (SARS), em específico o Sars-CoV-2. Uma parcela da população que contrai o vírus possui quadro assintomático, porém os que desenvolvem sintomas, acabam sofrendo de infecção pulmonar e necessitam de auxilio de respiradores artificiais para sobreviver. Com a evolução da tecnologia, ferramentas computacionais se tornam utensílios de grande valor para o diagnóstico precoce das doenças.
+
+Segundo [(JIANPNEG et al., 2020)](https://www.researchgate.net/publication/340271344_COVID-19_Screening_on_Chest_X-ray_Images_Using_Deep_Learning_based_Anomaly_Detection), deep learning é uma ferramenta efetiva para auxiliar radiologistas na detecção de anomalias em imagens, por isso, nossa proposta é utilizar imagens de raio-x dos pulmões e de tomografia computadorizada para identificar os casos de COVID-19. Para tal, iremos explorar o uso de modelos de deep learning, com o objetivo de identificar qual o modelo que apresenta melhor performance para a tarefa de classificar imagens de exames realizados e prover uma assistência ao diagnóstico médico rápido.
 
 # Motivação
 
