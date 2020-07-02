@@ -51,10 +51,16 @@ Para tal, iremos explorar o uso de modelos de redes neurais, aplicadas para a ta
 # Recursos e Métodos
 
 ## Bases de Dados
+O dataset de imagens de Tomografia Computadorizada estava considerávelmente balanceado (349 positivos e 397 negativos), tivemos dificuldades de encontrar outros datasets com imagens de tomografia computadorizada já classificados e que pudessem compor nossas análises.
+
+Em relação as imagens de Raio X, utilizamos dois conjuntos de dados, o primeiro de continha 751 imagens no total considerando todo o conjunto de dados, entretanto os dados que faziam sentido para as nossas análises era desbalanceado (422 positivos e 19 negativos), desta forma buscamos a utilização do terceiro dataset que contém 1583 imagens de diagnósticos negativos para quaisquer doenças.
+
+Utilizamos as bases listadas abaixo nas análises performadas.
+
 Base de Dados | Endereço na Web | Resumo descritivo e uso
 ----- | ----- | -----
-COVID-CT-Dataset: a CT scan dataset about COVID-19 - Zhao, Jinyu and Zhang, Yichen and He, Xuehai and Xie, Pengtao (2020) | https://github.com/UCSD-AI4H/COVID-CT | 746 imagens no total (349 positivo, 397 negativo), utilizamos os dados deste dataset para as análises de Tomografia Computadorizada
-COVID-19 image data collection - Cohen, Joseph Paul and Morrison, Paul and Dao, Lan | https://github.com/ieee8023/covid-chestxray-dataset | 751 imagens no total (422 positivo, 19 negativo), utilizamos este dataset para as análises de Raio X utilizando-o em sua totalidade
+COVID-CT-Dataset: a CT scan dataset about COVID-19 - Zhao, Jinyu and Zhang, Yichen and He, Xuehai and Xie, Pengtao (2020) | https://github.com/UCSD-AI4H/COVID-CT | 746 imagens no total (349 positivos, 397 negativos), utilizamos os dados deste dataset para as análises de Tomografia Computadorizada
+COVID-19 image data collection - Cohen, Joseph Paul and Morrison, Paul and Dao, Lan | https://github.com/ieee8023/covid-chestxray-dataset | 751 imagens no total (422 positivos, 19 negativos), utilizamos este dataset para as análises de Raio X utilizando-o em sua totalidade
 "Chest X-Ray Images (Pneumonia)" - Mooney, Paul | https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia | 5863 imagens no total (1583 negativos), utilizamos este dataset como forma de incrementar a quantidade de imagens de Raio X para diagnóstico negativo para COVID-19 dada a baixa quantidade de imagens disponíveis 
 
 ## Ferramentas
