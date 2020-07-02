@@ -54,7 +54,6 @@ Para tal, iremos explorar o uso de modelos de redes neurais, aplicadas para a ta
 Base de Dados | Endereço na Web | Resumo descritivo e uso
 ----- | ----- | -----
 COVID-CT-Dataset: a CT scan dataset about COVID-19 - Zhao, Jinyu and Zhang, Yichen and He, Xuehai and Xie, Pengtao (2020) | https://github.com/UCSD-AI4H/COVID-CT | Dataset com 349 imagens de tomografia computadorizada que contém achados clínicos referentes ao diagnóstico positivo para COVID-19.
-COVID-19 - China Consortium of Chest CT Image Investigation(CC-CCII) | http://ncov-ai.big.ac.cn/download?lang=en | Dataset com aproximadamente 4000 imagens de exames positivos e negativos para o diagnóstico de COVID-19, dada a quantidade de imagens e tamanho da base nos aproveitamos de uma parcela bem pequena das imagens disponibilizadas.
 COVID-19 image data collection - Cohen, Joseph Paul and Morrison, Paul and Dao, Lan | https://github.com/ieee8023/covid-chestxray-dataset | Dataset com 803 imagens de Raio-X e Tomografia Computadorizada distribuidas em diagnósticos positivos e negativos para COVID-19, nos utilizamos das imagens de Raio-X disponíveis nesta base
 "Chest X-Ray Images (Pneumonia)" - Mooney, Paul | https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia | Dataset com 5863 imagens de Raio-X de pulmão com diagnósticos normais e para Pneumonia (viral e bacterial), nos utilizamos deste dataset para aumentar a quantidade de arquivos negativos para COVID-19
 
