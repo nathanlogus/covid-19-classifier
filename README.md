@@ -53,9 +53,9 @@ Para tal, iremos explorar o uso de modelos de redes neurais, aplicadas para a ta
 ## Bases de Dados
 Base de Dados | Endereço na Web | Resumo descritivo e uso
 ----- | ----- | -----
-COVID-CT-Dataset: a CT scan dataset about COVID-19 - Zhao, Jinyu and Zhang, Yichen and He, Xuehai and Xie, Pengtao (2020) | https://github.com/UCSD-AI4H/COVID-CT | Dataset com 349 imagens de tomografia computadorizada que contém achados clínicos referentes ao diagnóstico positivo para COVID-19.
-COVID-19 image data collection - Cohen, Joseph Paul and Morrison, Paul and Dao, Lan | https://github.com/ieee8023/covid-chestxray-dataset | Dataset com 803 imagens de Raio-X e Tomografia Computadorizada distribuidas em diagnósticos positivos e negativos para COVID-19, nos utilizamos das imagens de Raio-X disponíveis nesta base
-"Chest X-Ray Images (Pneumonia)" - Mooney, Paul | https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia | Dataset com 5863 imagens de Raio-X de pulmão com diagnósticos normais e para Pneumonia (viral e bacterial), nos utilizamos deste dataset para aumentar a quantidade de arquivos negativos para COVID-19
+COVID-CT-Dataset: a CT scan dataset about COVID-19 - Zhao, Jinyu and Zhang, Yichen and He, Xuehai and Xie, Pengtao (2020) | https://github.com/UCSD-AI4H/COVID-CT | 746 imagens no total (349 positivo, 397 negativo), utilizamos os dados deste dataset para as análises de Tomografia Computadorizada
+COVID-19 image data collection - Cohen, Joseph Paul and Morrison, Paul and Dao, Lan | https://github.com/ieee8023/covid-chestxray-dataset | 751 imagens no total (422 positivo, 19 negativo), utilizamos este dataset para as análises de Raio X utilizando-o em sua totalidade
+"Chest X-Ray Images (Pneumonia)" - Mooney, Paul | https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia | 5863 imagens no total (1583 negativos), utilizamos este dataset como forma de incrementar a quantidade de imagens de Raio X para diagnóstico negativo para COVID-19 dada a baixa quantidade de imagens disponíveis 
 
 ## Ferramentas
 
