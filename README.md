@@ -1,4 +1,4 @@
-# Modelos de Deep Learning aplicados a imagens médicas como ferramenta no diagnóstico de COVID-19 
+## Modelos de Deep Learning aplicados a imagens médicas como ferramenta no diagnóstico de COVID-19 
 ## Deep Learning models applied to medical images as a tool in the diagnosis of COVID-19
 > Relatório referente ao projeto final da disciplina de Ciência e Visualização de dados em Saúde(IA386X), ministrada no primeiro semestre de 2020 pelo prof. André Santanchè (IC) e prof. Paula Dornhofer Paro Costa (FEEC).
 
