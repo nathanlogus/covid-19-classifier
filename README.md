@@ -363,6 +363,24 @@ Entretanto as outras técnicas citadas anteriormente obtiveram resultados melhor
 
 Assim como nos resultados das imagens de Raio-X, as imagens de tomografia aplicadas ao modelo EfficientNet tiveram resultados bons, entretanto apresentam os mesmos problemas do outro conjunto de dados.
 
+Em resumo, a tabela abaixo mostra os resultados compilados das métricas utilizadas para as análises (Acurácia, Precisão, Sensibilidade, F1-Score) utilizando como parâmetro a média ponderada dos valores obtidos dada a quantidade de classes.
+
+|  Modelo (RX) | Acurácia (%) | Precisão (%) | Sensibilidade (%) | F1-Score (%) |
+|:------------:|:------------:|:------------:|:-----------------:|:------------:|
+| CNN          |      93      |      93      |         89        |      91      |
+| XceptionNet  |      97      |      97      |         97        |      97      |
+| VGG16        |      96      |      96      |         96        |      96      |
+| ResNet       |      30      |       9      |         30        |      14      |
+| EfficientNet |      81      |      89      |         81        |      82      |
+
+|  Modelo (TC) | Acurácia (%) | Precisão (%) | Sensibilidade (%) | F1-Score (%) |
+|:------------:|:------------:|:------------:|:-----------------:|:------------:|
+| CNN          |      76      |      80      |         76        |      76      |
+| XceptionNet  |      65      |      77      |         65        |      62      |
+| VGG16        |      84      |      84      |         84        |      84      |
+| ResNet       |      47      |      22      |         47        |      30      |
+| EfficientNet |      70      |      77      |         70        |      67      |
+
 # Conclusões
 Com base nas análises, foi possível constatar a grande dificuldade em trabalhar com imagens para classificação, além de ser uma tarefa que demanda alta capacidade de processamento computacional, por se tratar de um grande volume de dados, é ainda mais complexa pelas grande quantidade de modelos disponíveis para trabalhar na classificação de imagens.
 
