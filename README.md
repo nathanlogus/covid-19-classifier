@@ -31,7 +31,7 @@ Segundo [(JIANPNEG et al., 2020)](https://www.researchgate.net/publication/34027
 
 # Motivação
 
-Por se tratar de um vírus que originou uma pandemia, diferentes regiões do mundo foram afetadas. Uma forma com boa aceitação e confiabilidade para detecção do vírus em pacientes é o teste RT-PCR (do inglês *reverse-transcriptase polymerase chain reaction*). Entretanto, nem todas as nações tem acesso a essa forma de diagnóstico e quando existente, pode ser escasso.
+Uma forma com boa aceitação e confiabilidade para detecção do vírus em pacientes é o teste RT-PCR (do inglês *reverse-transcriptase polymerase chain reaction*). Entretanto, nem todas as nações tem acesso a essa forma de diagnóstico e quando existente, pode ser escasso.
 
 Uma outra forma de realizar o diagnóstico do COVID-19 é através das Tomografias Computadorizadas (CT). Apesar de ser uma boa alternativa à RT-PCR, regiões sub-desenvolvidas podem não ter o equipamento necessário, além de ser um procedimento mais longo do que um exame de Raio-X.
 As imagens de Raio-X são uma alternativa de fácil acesso em diferentes regiões do mundo, e são exames rápidos, porém apresentam uma menor eficácia na detecção da doença.
