@@ -68,7 +68,7 @@ Orange Data Mining | https://orange.biolab.si/ | Fizemos uma implementação de 
 # Metodologia
 
 ### Afinal, o que é COVID-19?
-O Coronavirus (COVID-19) é uma doença infecciosa com alto indice de contaminação.  Os primeiros casos da doença foram identificados na cidade de Wuhan, na China, no final de 2019 e rapidamente a doença se espalhou pelo mundo. Até o momento, 10 milhões de pessoas foram contaminadas, das quais cerca de 500 mil não sobreviveram.
+A COVID-19 é uma doença infecciosa com alto indice de proliferação. Os primeiros casos da doença foram identificados na cidade de Wuhan, na China, no final de 2019 e rapidamente a doença se espalhou pelo mundo. Até o momento, 10 milhões de pessoas foram contaminadas, das quais cerca de 500 mil não sobreviveram.
 
 A doença é responsável por causar a Sindrome Respiratória Aguda Grave (SARS-CoV-2) e sua manifestação mais comum nos pacientes aparenta ser através da Pneumonia. A imagem a seguir mostra exemplos de exames (Raio-X e Tomografia Computadorizada) de COVID-19.
 
