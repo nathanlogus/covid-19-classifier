@@ -67,19 +67,58 @@ Orange Data Mining | https://orange.biolab.si/ | Fizemos uma implementação de 
 
 # Metodologia
 
+### Afinal, o que é COVID-19?
+O Coronavirus (COVID-19) é uma doença infecciosa com alto indice de contaminação.  Os primeiros casos da doença foram identificados na cidade de Wuhan, na China, no final de 2019 e rapidamente a doença se espalhou pelo mundo. Até o momento, 10 milhões de pessoas foram contaminadas, das quais cerca de 500 mil não sobreviveram.
+
+A doença é responsável por causar a Sindrome Respiratória Aguda Grave (SARS-CoV-2) e sua manifestação mais comum nos pacientes aparenta ser através da Pneumonia. A imagem a seguir mostra exemplos de exames (Raio-X e Tomografia Computadorizada) de COVID-19.
+
+![Exames](assets/exemplos.png)
+
+Grande parte dos infectados são assintomaticos porém parte deles necessitam de cuidados intensivos, como respiração artificial, podendo causar colapsos nos sistemas de saúde devido à velocidade de contágio. 
+
+Até o momento (Julho/2020), não foi encontrado um tratamento eficaz para doença e vacinas ainda estão em fase de desenvolvimento.
+
+### Técnicas de imagiologia
+
+O Raio-X é uma das mais importantes ferramentas da Imagiologia para diagnóstico, além de ser um dos metódos mais antigos e disseminados na Medicina. Sua alta acessibilidade e relativo baixo custo de manutenção e utilização tem o tornado uma importante ferramenta para auxílio no diagnóstico do COVID-19, principalmente em regiões sub-desenvolvidas. 
+
+Conceitualmente, o Raio-X é um tipo de radiação eletromagnética com curto comprimento de onda. Isso torna esse tipo de radiação capaz de penetrar diversos meios.  Ao entrar em contato com os tecidos do corpo humano, as ondas são atenuadas de acordo com a densidadede fisiológica dos tecidos. A imagem poderá variar do preto ao branco, a depender da intensidadeda atenuação, onde partes brancas significam total atuanação e pretas, nenhuma atenuação (densidade radiológica). Para fins de diagnóstico de COVID-19 imagens de Tórax são utilizadas, e assim detectar infecções nos pulmões do paciente.
+
+A Tomografia Computadorizada funciona de forma análoga ao Raio-X, utilizando o mesmo tipo de radiação eletromagnética para diagnóstico. A diferença é que na TC, os raios são bombardeados contra o corpo diversas vezes e em diferentes regiões, permitindo a geração de uma imagem em seção tranversal 3D. 
+
+Isso permite a visualização de diferentes níveis de tecidos dentro de um mesmo orgão, além de obter uma maior acurácia na formação da imagem. Em contrapartida, seu uso ao redor do mundo é menos difundido quando comparado ao Raio-X, devido ao maior custo de aquisição quando comparado a um equipamento convencional de Raio-X.
+
+### Técnicas de inteligência artificial
+
+Em nosso projeto utilizamos a técnica denominada *Deep Learning*, ou aprendizado profundo. O *Deep Learning* é considerado um subgrupo do Machine Learning, ou aprendizado de máquina, que por sua vez também é um subgrupo de *Artificial Intelligence*, ou inteligência artificial.
+
+Especificamente, ela tenta reproduzir a ideia das redes de neurônios, ou redes neurais, do nosso cérebro e criar a impressão que o computador está pensando.
+
+Para ser capaz de ensinar o computador a pensar, o *Deep Learning* usa informações inseridas pelo programador para selecionar características semelhantes entre os dados, para que após o processamento, seja capaz de retornar um valor dentre os esperados, como por exemplo, saber classificar uma emoção no texto,  ou realizar reconhecimento de uma face, classificar doenças, atuar como chatbot e outros.
+
+Para que ele seja capaz de agrupar os dados semelhantes, a rede neural é dividida em camadas e cada uma delas é utilizada para conseguir identificar características específicas que mais pra frente serão utilizadas para retornar o resultado. 
+
+Segundo (LECUN; BENGIO; HINTON, 2015), o Deep Learning permite modelos computacionais compostos por múltiplas camadas de processamento aprender representação de dados com múltiplos níveis de abstração, ou seja, descobrir estruturas intrínsecas em grandes quantidades de dados através de algorítimos que interferem nos parâmetros internos das camadas.
 
 ### Modelos de Baseline
-Para a construção e avaliação dos modelos de deep learning, uma rede neural inicial será construida.
-
-Em seguida adotamos a utilização de uma rede que encontramos durante o processo de revisão bibliográfica, esta rede é uma modificação da rede XceptionNet que foi aplicada a mesma tarefa proposta por este trabalho, a ideia era aplicar a mesma rede ao nosso conjunto de dados e avaliar se conseguiriamos obter resultados similares.
+Para que seja possível avaliar o desempenho de uma rede neural, é preciso criar um modelo de base para servir de comparação. Uma rede neural de baseline realiza essa função, pois identifica o desempenho padrão de uma rede, fornecendo os resultados necessários que servem de base em uma comparação com outras redes neurais, tais como a acurácia de uma classificação, médias e outros cálculos estatísticos.
 
 #### Convolutional Neural Networks
 Uma Rede Neural Convolucional (ConvNet / Convolutional Neural Network / CNN) é um algoritmo de Deep Learning que dada uma imagem de entrada, atribui pesos e vieses a objetos da imagem, sendo no final capaz de diferenciar um do outro.
 
+É possível uma rede neural ser bem complexa, e principalmente no *Deep Learning*, seu treinamento se torna ainda mais complicado pela existência de variadas quantidades de camadas ocultas. 
+
+Por isso, uma grande capacidade computacional se torna necessária para que, devido as inúmeras conexões entre os neurônios de uma camada, tenha seus parâmetros ajustados a cada iteração de treinamento. 
+
+Segundo (HENRIQUE BALDI DE ALMEIDA et al., 2018), as redes neurais convolucionais possuem uma diferença fundamental em relação as redes neurais comuns pois na primeira, cada neurônio da camada de entrada equivale ao valor de um dos pixels da imagem e, diferente do que acontece nas redes neurais comuns, essa camada de entrada não é achatada. 
+
+Utilizando uma tecnica de campos receptivos locais, um filtro é passado na primeira camada e executa uma convolução na imagem, que por sua vez resulta em uma função de ativação que é passada para a próxima camada. 
+
 A pré-configuração exigida em uma ConvNet é muito menor em comparação com outros algoritmos de classificação e portanto decidimos que este tipo de rede seria adequada para realizar uma análise incial.
 
 #### Modified XceptionNet
-Fazendo uma revisão sobre os últimos artigos disponíveis na acadêmia que tinham como objetivo a classificação de imagens de diagnóstico com base em redes neurais, identificamos uma implementação de rede chamada XceptionNet.
+
+O Xception Network é um tipo de CNN, ela apresenta melhores resultados devido a ideia de que é possível separar em um filtro sua profundidade e dimensão espacial, resultando em um número menor de parâmetros que as camadas de convolução convencionais, sendo assim menos propensas a ocorrer o overfitting.
 
 Esta rede foi desenvolvida com o objetivo de identificar faces modificadas por meio de algoritmos de Deep Fake, entretanto têm mostrado bons resultados para outros domínios de aplicação.
 
@@ -94,14 +133,25 @@ Desta forma o Transfer Learning surge como uma ferramenta para usufruir de conhe
 
 Nos aproveitamos desta técnica com alguns dos modelos mais conhecidos e adicionamos camadas em seu fim para "especializar o modelo ao novo conjunto de dados".
 
+Nesse projeto escolhemos utilizar a VGG16, a Residual Neural Network (ResNet) e a Efficient Network (EfficientNet).
+
 #### VGG16
 
+A rede VGG16 essa rede neural convolucional foi proposta por A. Zisserman e K. Simonyan em um artigo entitulado "Very Deep Convolutional Networks for Large-Scale Image Recognition". 
+
+A principal contribuição  dessa rede é realizar uma avaliação minuciosa das redes de profundidade crescente usando uma arquitetura com filtros de convolução muito pequenos (3×3), o que mostra que uma melhoria significativa nas configurações da rede em que foi baseada e pode ser alcançada alterando a profundidade e pesos. 
 
 #### Residual Neural Networks
 
+As Residual Neural Networks são indicadas para redes com muitas camadas e seu conceito é alternar propridades de camadas intermediárias, por exemplo a cada 2 ou 3 camadas a fim de minizar a perda do gradiente. 
+
+Essa perda ocorre devido à função de perda calculada em cada etapa e evita que valores próximos a zero afetem o resutlado do aprendizado. A perda desse gradiente acarreta um percentual de erro crescente, influenciando a etapa de treino.
 
 #### Efficient Net
 
+Na Efficient Network, segundo Tan Mingxing e Le V. Quoc, foi feito um estudo sistematico que identificou uma melhor performance da rede neural quando houve um cuidadoso balanceamento de sua profundidade, largura e resolução.
+
+Nos aproveitamos dos aprendizados obtidos por esta rede para avaliar se a mesma poderia gerar bons resultados de acurácia para resolver o problema de classificação de imagens de COVID-19.
 
 ## Detalhamento do Projeto
 
@@ -116,6 +166,9 @@ A imagem abaixo mostra a configuração que fizemos para a configuração do pip
 ![Pipeline Orange](assets/orange.jpeg)
 
 Os resultados obtidos são apresentados abaixo.
+
+![Pipeline Orange](assets/cross.jpeg)
+
 
 
 # Resultados e Discussão
