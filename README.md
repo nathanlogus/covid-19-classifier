@@ -25,18 +25,18 @@ Therefore, this work aims to propose an analysis of deep learning models based o
 https://www.youtube.com/watch?v=ps3WlKUGLFw&feature=youtu.be
 
 # Introdução
-O ano de 2020 será lembrado por inúmeras gerações futuras devido a epidemia que, inesperadamente, se espalhou mundialmente e se tornou uma pandemia. A doença, causada por um coronavírus nomeado COVID-19, desencadeia uma sindrome respiratória aguda grave (SARS), em específico o Sars-CoV-2. Uma parcela da população que contrai o vírus possui quadro assintomático, porém os que desenvolvem sintomas, acabam sofrendo de infecção pulmonar e necessitam de auxilio de respiradores artificiais para sobreviver. Com a evolução da tecnologia, ferramentas computacionais se tornam utensílios de grande valor para o diagnóstico precoce das doenças.
+O ano de 2020 será lembrado por inúmeras gerações futuras devido a epidemia que, inesperadamente, se espalhou mundialmente e se tornou uma pandemia. A doença COVID-19, causada por uma variação do coronavírus (Sars-CoV-2), desencadeia uma sindrome respiratória aguda grave (SARS). Uma parcela da população que contrai o vírus possui quadro assintomático, porém os que desenvolvem sintomas, acabam sofrendo de infecção pulmonar e necessitam de auxilio de respiradores artificiais para sobreviver. Com a evolução da tecnologia, ferramentas computacionais se tornam utensílios de grande valor para o diagnóstico precoce das doenças.
 
-Segundo [(JIANPNEG et al., 2020)](https://www.researchgate.net/publication/340271344_COVID-19_Screening_on_Chest_X-ray_Images_Using_Deep_Learning_based_Anomaly_Detection), deep learning é uma ferramenta efetiva para auxiliar radiologistas na detecção de anomalias em imagens, por isso, nossa proposta é utilizar imagens de raio-x dos pulmões e de tomografia computadorizada para identificar os casos de COVID-19. Para tal, iremos explorar o uso de modelos de deep learning, com o objetivo de identificar qual o modelo que apresenta melhor performance para a tarefa de classificar imagens de exames realizados e prover uma assistência ao diagnóstico médico rápido.
+Segundo [(JIANPNEG et al., 2020)](https://www.researchgate.net/publication/340271344_COVID-19_Screening_on_Chest_X-ray_Images_Using_Deep_Learning_based_Anomaly_Detection), deep learning é uma ferramenta efetiva para auxiliar radiologistas na detecção de anomalias em imagens, por isso, nossa proposta é utilizar imagens de raio-x e de tomografia computadorizada dos pulmões para identificar os casos de COVID-19. Para tal, iremos explorar o uso de modelos de deep learning, com o objetivo de identificar qual o modelo que apresenta melhor performance para a tarefa de classificar imagens de exames realizados e prover uma assistência ao diagnóstico médico rápido.
 
 # Motivação
 
-Uma forma com boa aceitação e confiabilidade para detecção do vírus em pacientes é o teste RT-PCR (do inglês *reverse-transcriptase polymerase chain reaction*). Entretanto, nem todas as nações tem acesso a essa forma de diagnóstico e quando existente, pode ser escasso.
+Uma forma com boa aceitação e confiabilidade para detecção do vírus em pacientes é o teste RT-PCR (do inglês *reverse-transcriptase polymerase chain reaction*). Entretanto, nem toda a população tem acesso a essa forma de diagnóstico e quando existente, pode ser escasso. Por esse motivo, outros métodos estão sendo desenvolvidos para auxíliar o diagnóstico da doença.
 
-Uma outra forma de realizar o diagnóstico do COVID-19 é através das Tomografias Computadorizadas (CT). Apesar de ser uma boa alternativa à RT-PCR, regiões sub-desenvolvidas podem não ter o equipamento necessário, além de ser um procedimento mais longo do que um exame de Raio-X.
-As imagens de Raio-X são uma alternativa de fácil acesso em diferentes regiões do mundo, e são exames rápidos, porém apresentam uma menor eficácia na detecção da doença.
-
-Dessa forma, a principal motivação desse trabalho é utilizar a aprendizagem de máquina para acelerar e aumentar a acurácia da detecção do COVID-19 através de imagens de Raio-X, e assim viabilizar a sua utilização como diagnóstico.
+Raio-X e Tomografias Computadorizadas (TC) são dois tipos de exame que, ao serem analisados, fornecem informações para auxilio na detecção da doença.
+As Tomografias fornecem imagens mais detalhadas em comparação ao Raio-X, mas seu custo de operação ainda é elevado, além do procedimento ser mais complexo do que o do Raio-X.
+O Raio-X é uma alternativa de fácil acesso em diferentes regiões do mundo e possui custo relativamente baixo, porém sua imagem possui qualidade inferior.
+Dessa forma, a principal motivação desse trabalho é utilizar a aprendizagem de máquina para acelerar e aumentar a acurácia da detecção da COVID-19 através de imagens de Raio-X e TC, a fim de viabilizar a sua utilização no auxílio ao diagnóstico.
 
 ## Perguntas de Pesquisa
 * É possível por meio de aprendizagem de máquina e visão computacional, criação de um modelo capaz de classificar imagens de raio-x de exames de COVID-19?
@@ -67,25 +67,23 @@ Orange Data Mining | https://orange.biolab.si/ | Fizemos uma implementação de 
 # Metodologia
 
 ### Afinal, o que é COVID-19?
-A COVID-19 é uma doença infecciosa com alto indice de proliferação. Os primeiros casos da doença foram identificados na cidade de Wuhan, na China, no final de 2019 e rapidamente a doença se espalhou pelo mundo. Até o momento, 10 milhões de pessoas foram contaminadas, das quais cerca de 500 mil não sobreviveram.
+A COVID-19 é uma doença infecciosa com alto índice de proliferação e contaminação. Os primeiros casos da doença foram identificados na cidade de Wuhan, na China, no final de 2019 e rapidamente a doença se espalhou pelo mundo. Até o momento, 10 milhões de pessoas foram contaminadas, das quais cerca de 500 mil não sobreviveram.
 
-A doença é responsável por causar a Sindrome Respiratória Aguda Grave (SARS-CoV-2) e sua manifestação mais comum nos pacientes aparenta ser através da Pneumonia. A imagem a seguir mostra exemplos de exames (Raio-X e Tomografia Computadorizada) de COVID-19.
+A doença é responsável por causar a Sindrome Respiratória Aguda Grave (SARS) e sua manifestação mais comum nos pacientes aparenta ser através da Pneumonia. A imagem a seguir mostra exemplos de exames (Raio-X e Tomografia Computadorizada) de COVID-19.
 
 ![Exames](assets/exemplos.png)
 
-Grande parte dos infectados são assintomaticos porém parte deles necessitam de cuidados intensivos, como respiração artificial, podendo causar colapsos nos sistemas de saúde devido à velocidade de contágio. 
+Grande parte dos infectados são assintomaticos porém a outra parte necessita de cuidados intensivos, como respiração artificial, podendo causar colapsos nos sistemas de saúde devido à velocidade de contágio. 
 
 Até o momento (Julho/2020), não foi encontrado um tratamento eficaz para doença e vacinas ainda estão em fase de desenvolvimento.
 
 ### Técnicas de imagiologia
 
-O Raio-X é uma das mais importantes ferramentas da Imagiologia para diagnóstico, além de ser um dos metódos mais antigos e disseminados na Medicina. Sua alta acessibilidade e relativo baixo custo de manutenção e utilização tem o tornado uma importante ferramenta para auxílio no diagnóstico do COVID-19, principalmente em regiões sub-desenvolvidas. 
+O Raio-X é uma das mais importantes ferramentas da Imagiologia para diagnóstico, além de ser um dos metódos mais antigos e disseminados na medicina. Sua alta acessibilidade e relativo baixo custo de manutenção e utilização tem o tornado uma importante ferramenta para auxílio no diagnóstico da COVID-19, principalmente em regiões sub-desenvolvidas. 
 
-Conceitualmente, o Raio-X é um tipo de radiação eletromagnética com curto comprimento de onda. Isso torna esse tipo de radiação capaz de penetrar diversos meios.  Ao entrar em contato com os tecidos do corpo humano, as ondas são atenuadas de acordo com a densidadede fisiológica dos tecidos. A imagem poderá variar do preto ao branco, a depender da intensidadeda atenuação, onde partes brancas significam total atuanação e pretas, nenhuma atenuação (densidade radiológica). Para fins de diagnóstico de COVID-19 imagens de Tórax são utilizadas, e assim detectar infecções nos pulmões do paciente.
+Conceitualmente, o Raio-X é um tipo de radiação eletromagnética com curto comprimento de onda. Isso o torna capaz de penetrar diversos meios. Ao entrar em contato com os tecidos do corpo humano, as ondas são atenuadas de acordo com suas densidadedes fisiológicas. A imagem poderá variar do preto ao branco, a depender da intensidadeda da atenuação, onde partes brancas significam total atenuação e partes pretas nenhuma atenuação (densidade radiológica). Para fins de diagnóstico da COVID-19, imagens de Tórax são utilizadas a fim de detectar possíveis infecções nos pulmões do paciente.
 
-A Tomografia Computadorizada funciona de forma análoga ao Raio-X, utilizando o mesmo tipo de radiação eletromagnética para diagnóstico. A diferença é que na TC, os raios são bombardeados contra o corpo diversas vezes e em diferentes regiões, permitindo a geração de uma imagem em seção tranversal 3D. 
-
-Isso permite a visualização de diferentes níveis de tecidos dentro de um mesmo orgão, além de obter uma maior acurácia na formação da imagem. Em contrapartida, seu uso ao redor do mundo é menos difundido quando comparado ao Raio-X, devido ao maior custo de aquisição quando comparado a um equipamento convencional de Raio-X.
+A Tomografia Computadorizada funciona de forma análoga ao Raio-X, utilizando o mesmo tipo de radiação eletromagnética para diagnóstico. A diferença é que na TC, os raios são bombardeados contra o corpo diversas vezes e em diferentes regiões, permitindo a geração de uma imagem em seção tranversal 3D. Isso permite a visualização de diferentes níveis de tecidos dentro de um mesmo orgão, além de obter uma maior acurácia na formação da imagem. Em contrapartida, seu uso ao redor do mundo é menos difundido quando comparado ao Raio-X.
 
 ### Técnicas de inteligência artificial
 
@@ -93,7 +91,7 @@ Em nosso projeto utilizamos a técnica denominada *Deep Learning*, ou aprendizad
 
 Especificamente, ela tenta reproduzir a ideia das redes de neurônios, ou redes neurais, do nosso cérebro e criar a impressão que o computador está pensando.
 
-Para ser capaz de ensinar o computador a pensar, o *Deep Learning* usa informações inseridas pelo programador para selecionar características semelhantes entre os dados, para que após o processamento, seja capaz de retornar um valor dentre os esperados, como por exemplo, saber classificar uma emoção no texto,  ou realizar reconhecimento de uma face, classificar doenças, atuar como chatbot e outros.
+Para ser capaz de ensinar o computador a pensar, o *Deep Learning* usa informações inseridas pelo programador para selecionar características semelhantes entre os dados, para que após o processamento, seja capaz de retornar um valor dentre os esperados, como por exemplo, saber classificar uma emoção no texto, ou realizar reconhecimento de uma face, classificar doenças, atuar como chatbot e outros.
 
 Para que ele seja capaz de agrupar os dados semelhantes, a rede neural é dividida em camadas e cada uma delas é utilizada para conseguir identificar características específicas que mais pra frente serão utilizadas para retornar o resultado. 
 
@@ -119,26 +117,22 @@ A pré-configuração exigida em uma ConvNet é muito menor em comparação com 
 
 O Xception Network é um tipo de CNN, ela apresenta melhores resultados devido a ideia de que é possível separar em um filtro sua profundidade e dimensão espacial, resultando em um número menor de parâmetros que as camadas de convolução convencionais, sendo assim menos propensas a ocorrer o overfitting.
 
-Esta rede foi desenvolvida com o objetivo de identificar faces modificadas por meio de algoritmos de Deep Fake, entretanto têm mostrado bons resultados para outros domínios de aplicação.
-
-Um exemplo foi a modificação desta rede proposta no artigo "Diagnosis of Coronavirus Disease (COVID-19) from Chest X-Ray images using modified XceptionNet." escrito por Singh, Krishna Kant et al.
+Esta rede foi desenvolvida com o objetivo de identificar faces modificadas por meio de algoritmos de Deep Fake, entretanto têm mostrado bons resultados para outros domínios de aplicação. Um exemplo foi a modificação desta rede proposta no artigo "Diagnosis of Coronavirus Disease (COVID-19) from Chest X-Ray images using modified XceptionNet." escrito por Singh, Krishna Kant et al.
 
 Os resultados atingidos por eles no conjunto de imagens que coletaram apresentou resultados excelentes e com o objetivo de avaliar se a performance obtida por eles seria semelhante no nosso conjunto de dados, resolvemos avaliar os resultados.
 
 ### Transfer Learning
 Criar modelos de Deep Learning do zero pode se tornar uma tarefa complicada e que necessita de muitos recursos computacionais e dados para treinamento.
 
-Desta forma o Transfer Learning surge como uma ferramenta para usufruir de conhecimento e de informações aprendidas por modelos conhecidos e treinados em milhões de dados de treinamento por pesquisadores e empresas.
-
-Nos aproveitamos desta técnica com alguns dos modelos mais conhecidos e adicionamos camadas em seu fim para "especializar o modelo ao novo conjunto de dados".
+Desta forma o Transfer Learning surge como uma ferramenta para usufruir de conhecimento e de informações aprendidas por modelos conhecidos e treinados em milhões de dados de treinamento por pesquisadores e empresas. Nos aproveitamos desta técnica com alguns dos modelos mais conhecidos e adicionamos camadas em seu fim para "especializar o modelo ao novo conjunto de dados".
 
 Nesse projeto escolhemos utilizar a VGG16, a Residual Neural Network (ResNet) e a Efficient Network (EfficientNet).
 
 #### VGG16
 
-A rede VGG16 essa rede neural convolucional foi proposta por A. Zisserman e K. Simonyan em um artigo entitulado "Very Deep Convolutional Networks for Large-Scale Image Recognition". 
+A rede VGG16 foi proposta por A. Zisserman e K. Simonyan em um artigo entitulado "Very Deep Convolutional Networks for Large-Scale Image Recognition". 
 
-A principal contribuição  dessa rede é realizar uma avaliação minuciosa das redes de profundidade crescente usando uma arquitetura com filtros de convolução muito pequenos (3×3), o que mostra que uma melhoria significativa nas configurações da rede em que foi baseada e pode ser alcançada alterando a profundidade e pesos. 
+Sua principal contribuição é realizar uma avaliação minuciosa das redes de profundidade crescente usando uma arquitetura com filtros de convolução muito pequenos (3×3), o que mostra que uma melhoria significativa nas configurações da rede em que foi baseada e pode ser alcançada alterando a profundidade e pesos. 
 
 #### Residual Neural Networks
 
@@ -310,7 +304,7 @@ Outro ponto interessante é que também é possível observar que o conjunto de 
 
 Observando os resultados da rede, observamos que os dados de validação não provém informações suficientes para habilitar o modelo a generalizar os resultados obtidos, isso pode ter ocorrido pelo desbalanceamento das amostras de COVID-19 e imagens normais.
 
-Mesmo com o processo de Data Augmentation, o desbalanceamento pode ter influênciado nos resultados e a utilização de técnicas de ajuste de peso para as classes poderia ajudar a resolver ou minizar o erro do modelo.
+Mesmo com o processo de Data Augmentation, o desbalanceamento pode ter influênciado nos resultados e a utilização de técnicas de ajuste de peso para as classes poderia ajudar a resolver ou minimizar o erro do modelo.
 
 ![Loss x Epoch - ResNet](assets/22.png)
 
@@ -327,7 +321,7 @@ Mesmo com o processo de Data Augmentation, o desbalanceamento pode ter influênc
 | macro avg    | 0.23      | 0.50     | 0.32     | 150     |
 | weighted avg | 0.22      | 0.47     | 0.30     | 150     |
 
-Assim como no conjunto de imagens de Raio-X o conjunto de dados de tomografia apresentou resultados ruins, neste caso, podemos observar uma pequena melhora na acurácia média do modelo que pode reforça a ideia de que balancear os datasets pode ajudar em resultados positivos.
+Assim como no conjunto de imagens de Raio-X, o conjunto de dados de tomografia apresentou resultados ruins, neste caso, podemos observar uma pequena melhora na acurácia média do modelo que pode reforça a ideia de que balancear os datasets pode ajudar em resultados positivos.
 
 De qualquer forma, a implementação da rede ResNet no conjunto de imagens que selecionamos apresentou resultados ruins.
 
@@ -370,17 +364,17 @@ Entretanto as outras técnicas citadas anteriormente obtiveram resultados melhor
 Assim como nos resultados das imagens de Raio-X, as imagens de tomografia aplicadas ao modelo EfficientNet tiveram resultados bons, entretanto apresentam os mesmos problemas do outro conjunto de dados.
 
 # Conclusões
-Com base nas análises, foi possível observar a grande dificuldade em trabalhar com imagens para classificação, além de ser uma tarefa que demanda computacionalmente por se tratar de um grande volume de dados, é ainda mais complexa pelas grande quantidade de modelos disponíveis para trabalhar na classificação de imagens.
+Com base nas análises, foi possível constatar a grande dificuldade em trabalhar com imagens para classificação, além de ser uma tarefa que demanda alta capacidade de processamento computacional, por se tratar de um grande volume de dados, é ainda mais complexa pelas grande quantidade de modelos disponíveis para trabalhar na classificação de imagens.
 
-Foi interessante notar, que resultados satisfatórios para o conjunto de dados que coletamos foram obtidos por meio da aplicação de técnicas de transfer learning, onde certas camadas de uma rede neural são pré-treinadas em um grande conjunto de dados, e somente aplicadas no dataset em análise após a criação de novas camadas de saída facilita na extração de features relevantes para a classificação.
+Foi interessante notar que os resultados satisfatórios para o conjunto de dados que coletamos foram obtidos por meio da aplicação de técnicas de transfer learning, onde certas camadas de uma rede neural são pré-treinadas em um grande conjunto de dados, e somente aplicadas no dataset em análise após a criação de novas camadas de saída facilita na extração de features relevantes para a classificação.
 
-Em particular tivemos grandes dificuldades para lidar com a grande quantidade de arquivos no ambiente de execução do Google Colab, existe limitações na memória disponível na máquina alocada para processar os dados que gerou a necessidade de por exemplo limitar a quantidade de imagens analisadas e também pode ter sido um fator agravante para a acurácia dos modelos avaliados, em particular, para os conjuntos de dados de tomografia.
+Em particular tivemos grandes dificuldades para lidar com a grande quantidade de arquivos no ambiente de execução do Google Colab, existe limitações na memória disponível na máquina alocada para processar os dados. Isso gerou a necessidade de limitar a quantidade de imagens analisadas e também pode ter sido um fator agravante para a acurácia dos modelos avaliados, em particular, para os conjuntos de dados de tomografia.
 
-Outra dificuldade inicial foi a escolha do conjunto de dados que iriamos utilizar para executar as análises, apesar da grande quantidade de imagens disponíveis, muitas delas estavam hospedadas em servidores chineses que tinham taxas de transferência extremamente baixas. Inicialmente foram testadas outras metodologias para a seleção de dados de treino e teste e que gerou uma baixa acurácia dos resultados e testes efetuados, sendo necessário posteriormente alterar as funções de distribuição para ferramentas mais adequadas oferecidadas por bibliotecas como sklearn e Tensorflow.
+Outra dificuldade inicial foi a escolha do conjunto de dados que iriamos utilizar para executar as análises. Apesar da grande quantidade de imagens disponíveis, muitas delas estavam hospedadas em servidores chineses que tinham taxas de transferência extremamente baixas. Inicialmente foram testadas outras metodologias para a seleção de dados de treino e teste e que gerou uma baixa acurácia dos resultados e testes efetuados, sendo necessário posteriormente alterar as funções de distribuição para ferramentas mais adequadas oferecidadas por bibliotecas como sklearn e Tensorflow.
 
-Foi interessante observar que camadas convolucionais, comumente usadas na classsificação de imagens convencionais (animais, objetos), tiveram um bom desempenho no conjunto de dados médicos analisados, mesmo que, em arquiteturas simplificadas.
+Foi interessante observar que camadas convolucionais, comumente usadas na classsificação de imagens convencionais (animais, objetos), tiveram um bom desempenho no conjunto de dados médicos analisados, mesmo em arquiteturas simplificadas.
 
-Finalmente, considerando o conjunto de imagens de tomografia computadorizada, chegamos a conclusão de que utilizar métodos de classificação podem não ser as ferramentas mais adequadas para auxiliar no diagnóstico de COVID-19, dado que mesmo as arquiteturas de redes neurais mais complexas apresentarem difulculdades para extrair features das imagens de tomografia computadorizada.
+Finalmente, considerando o conjunto de imagens de tomografia computadorizada, chegamos a conclusão que utilizar métodos de classificação podem não ser as ferramentas mais adequadas para auxiliar no diagnóstico de COVID-19, dado que mesmo as arquiteturas de redes neurais mais complexas apresentaram dificuldades para extrair features das imagens.
 
 # Trabalhos Futuros
 
@@ -396,7 +390,6 @@ Considerando os trabalhos futuros, poderiamos explorar o ajuste e parâmetros do
 [Paul Cohen, Morrison, Dao, et al. COVID-19 Image Data Collection: Prospective Predictions Are the Future, arXiv:2006.11988, 2020 ](https://github.com/ieee8023/covid-chestxray-dataset)
 
 [Kermany, Daniel S., et al. "Identifying medical diagnoses and treatable diseases by image-based deep learning." Cell 172.5 (2018): 1122-1131.](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia)
-
 
 JIANPENG, Z. et al. COVID-19 Screening on Chest X-ray Images Using Deep Learning basedAnomaly Detection, 2020
 
