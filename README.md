@@ -166,7 +166,7 @@ A imagem abaixo mostra a configuração que fizemos para a configuração do pip
 
 Os resultados obtidos são apresentados abaixo.
 
-![Pipeline Orange](assets/cross.jpeg)
+![Pipeline Orange](assets/cross2.jpeg)
 
 
 
