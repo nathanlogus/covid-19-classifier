@@ -2,7 +2,7 @@
 ## Deep Learning models applied to medical images as a tool in the diagnosis of COVID-19
 > Relatório referente ao projeto final da disciplina de Ciência e Visualização de dados em Saúde(IA386X), ministrada no primeiro semestre de 2020 pelo prof. André Santanchè (IC) e prof. Paula Dornhofer Paro Costa (FEEC).
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1qduTX2yPoMB6Ejhei3-PkB4BkdnqwAbd?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/drive/1i3LiZn85kkMiMeQJnDAblsd895I_TMPr?usp=sharing)
 
 # Descrição do projeto
 Diferentes regiões do mundo foram afetadas pelo novo coronavírus. Um grande número de pessoas está ficando doente e estão sendo levadas ao hospital, às vezes em condições críticas de saúde, devido a um dos principais sintomas da doença: pneumonia e insuficiência respiratória. Esta é a principal causa raiz que já levou mais de 500 mil pessoas à morte. Até o momento, a maneira mais confiável de detectar a infecção, o teste "RT-PCR", ainda é escasso e caro, ainda mais quando se trata de regiões subdesenvolvidas ou lugares isolados no mundo. Para ajudar os médicos a detectar com mais facilidade a doença, pessoas de todo o mundo estão se unindo para melhorar o diagnóstico obtido por meio de imagens. Eles estão trabalhando em algoritmos de aprendizado de máquina com o objetivo de tornar o diagnóstico mais rápido e preciso através de métodos mais baratos.
